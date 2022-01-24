@@ -25,20 +25,16 @@ def array_42(ary)
 end
 
 def magic_array(ary)
+    k = 0
     new_ary = ary.flatten.sort
-    new_ary.length.times do |i|
-        if new_ary[i] != nil
-            if new_ary[i] % 3 == 0
-                new_ary.delete_at(i)
+    new_ary.length.times do
+        if new_ary[k] != nil
+            if new_ary[k] % 3 == 0
+                new_ary.delete_at(k)
+                k -= 1
             end
         end
-    end
-    new_ary.length.times do |i|
-        if new_ary[i] != nil
-            if new_ary[i] % 3 == 0
-                new_ary.delete_at(i)
-            end
-        end
+        k += 1
     end
     new_ary.length.times do |j|
         new_ary[j] *= 2
